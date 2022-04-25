@@ -3,12 +3,16 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'echo "Hello world!"'
-				sh '''
-					echo "Multiline too"
-					ls -lah
-				'''
-			}
+				timeout(time: 3, unit: 'SECONDS') {
+					retry(5) {
+						sh 'echo "Hello world!"'
+					}
+					sh '''
+						echo "Multiline too"
+						ls -lah
+					'''
+					}
+				}
 		}
 	}
 }
