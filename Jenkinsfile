@@ -7,6 +7,7 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
+				echo 'Database engine: ${DB_ENGINE}'
 				timeout(time: 3, unit: 'SECONDS') {
 					retry(5) {
 						sh 'echo "Hello world!"'
@@ -21,7 +22,7 @@ pipeline {
 	}
 	post {
 		always {
-			echo 'This will always run'}
+			echo 'This will always run \n Auth=${DISABLE_AUTH}'}
 		success {
 			echo 'This will run always if successfull'}
 		failure {
