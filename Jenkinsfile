@@ -14,5 +14,19 @@ pipeline {
 					}
 				}
 		}
+		post {
+			always {
+				echo 'This will always run'}
+			success {
+				echo 'This will run always if successfull'}
+			failure {
+				echo 'This will run only if failured'}
+			unstable {
+				echo 'This will run only if bluid marked as unstable'}
+			changed {
+				echo 'This will run if build result changed'
+				echo 'For example previous run Pipeline failure and now success'
+				}
+		}
 	}
 }
