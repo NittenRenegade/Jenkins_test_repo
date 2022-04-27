@@ -25,7 +25,7 @@ pipeline {
 			}
 		}
 		stage('Sanity check') {
-			input "Does the staging environment look ok?")
+			input "Does the staging environment look ok?"
 		}
 	}
 	post {
