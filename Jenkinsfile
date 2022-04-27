@@ -19,6 +19,14 @@ pipeline {
 					}
 				}
 		}
+		stage('Test') {
+			steps {
+				echo 'Some test here'
+			}
+		}
+		stage('Sanity check') {
+			input "Does the staging environment look ok?")
+		}
 	}
 	post {
 		always {
